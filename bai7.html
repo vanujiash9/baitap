@@ -1,0 +1,68 @@
+<!-- bài 7 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+table{
+    border: 1px solid black;
+    background-color: yellow;
+}
+form tr, td{
+    border: 1px solid black;
+}
+.body{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    width: 500px;
+    height: 200px;
+    padding: 20px;
+}
+</style>
+</head>
+<body>
+   <div class="body">
+<form action="">
+    <h1 style="text-align: center; color: brown;">Tìm các số chia hết cho 6 và 9</h1>
+    <table>
+        <tr>
+            <td>Nhập 1 số</td>
+            <td><input type="number" id="nhapSo"><button style="width: 50px;" onclick="In()">In</button></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text" id="xuat_ket_qua" disabled style="width: 300px;"></td>
+        </tr>
+    </table>
+</form>
+   </div> 
+   <script>
+    function In(){
+        let nhapSoInput = document.getElementById('nhapSo')
+        let nhapSo = parseInt(nhapSoInput.value)
+        let ketQua = document.getElementById('xuat_ket_qua')
+        let result =''
+    if(isNaN(nhapSoInput.value)){
+        ketQua.value ='Số nhập không hợp lệ'
+    }else{
+        ketQua.value =''
+        for( i=1; i<= nhapSo ; i++){
+            if( i%6 == 0 && i%9==0){
+                result +=`${i},  `
+        }
+    }
+    if(result){
+        ketQua.value = `Các số từ 1 đến ${nhapSo} chia hết cho 6 và 9 là: ${result} \n`
+    }else{
+        ketQua.value ='Không có số nào chia hết cho 6 và 9'
+    }
+}
+    }
+   </script>
+</body>
+</html>

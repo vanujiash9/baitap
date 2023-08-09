@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     table{
+        border: 1px solid goldenrod;
+        background: gold;
+        
+     }
+     form tr, td{
+        border: 1px solid black
+     }
+     .body{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        border: 1px solid black;
+        padding: 20px;
+        height: 200px;
+        width: 400px;
+     }
+    </style>
+</head>
+<body>
+    <div class="body">
+   <form action="">
+    <h1 style="color: orange; text-align: center;">In bảng cửu chương</h1>
+    <table>
+        <tr>
+            <td>Nhập cửu chương</td>
+            <td><input type="input" id="nhapCuuChuong" style="width:100px;"
+                input type="text"><button style="margin-left: 10px; width: 50px;" onclick="In()">In</button></td>
+            
+        </tr>
+        <tr>
+            <td colspan="3"><input type="text"  style="width: 350px;" id="bcc" disabled></td>
+        </tr>
+    </table>
+
+</form>
+    </div>
+    <script>
+        function In(){
+        let nhapCuuChuongInput =document.getElementById('nhapCuuChuong')
+        let nhapCuuChuong = parseInt(nhapCuuChuongInput.value)
+        let bccInput= document.getElementById('bcc')
+        
+        if(isNaN(nhapCuuChuongInput.value)){
+            bccInput.value ='Số nhập không hợp lệ'
+        }else{
+            bccInput.value =''
+            for(let i=1; i<10;i++){
+                bccInput.value += `${nhapCuuChuongInput.value} x ${i} = ${nhapCuuChuongInput.value * i} \n `
+            }
+        }
+    }  
+    </script>
+</body>
+</html>

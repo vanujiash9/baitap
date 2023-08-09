@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+table, tr, td {
+   border: 1px solid green;
+   background-color: aquamarine;
+}
+.body {
+   border: 1px solid black;
+   width: 50%;
+   padding: 10px;
+   margin: auto;
+   display: flex;
+   justify-content: center;
+}
+</style>
+</head>
+<body>
+    <div class="body">
+     <form action="">
+        <h1 style="color: green; text-align: center;">Tính tiền thưởng cuối năm</h1>
+        <table>
+     <tr>
+        <td>Tiền lương</td>
+        <td><input type="input" id="tienLuong"></td>
+     </tr>
+     <tr>
+        <td>Xếp loại</td>
+         <td><label for=""><select name="" id="xepLoai">
+            <option value="LoaiA" >Loại A</option>
+            <option value="LoaiB" >Loại B</option>
+            <option value="LoaiC" >Loại C</option>
+            <option value="LoaiD" >Loại D</option>
+         </select></label></td>
+     </tr>
+     <tr>
+        <td colspan="2"><button onclick="tinh()" style="margin-left: 100px;">Tính</button></td>
+     </tr>
+     <tr>
+      <td colspan="2" ><input type="text" id="tinhTienThuong" disabled style="width: 250px;"></td>
+     </tr>
+        </table>
+     </form>
+    </div>
+    <script>
+      function tinh() {
+         let tienLuongInput = document.getElementById('tienLuong');
+         let tienLuong = parseFloat(tienLuongInput.value);
+         let xepLoaiInput = document.getElementById('xepLoai');
+         let tienThuongInput = document.getElementById('tinhTienThuong');
+         
+         if (tienLuong <= 0) {
+            tienThuongInput.value = 'Tiền lương phải lớn hơn 0';
+         } else {
+            if (xepLoaiInput.value == 'LoaiA') {
+               tienThuongInput.value = `Tiền thưởng là: ${tienLuongInput.value * 2}`
+            } else if (xepLoaiInput.value =='LoaiB') {
+               tienThuongInput.value = `Tiền thưởng là: ${tienLuongInput.value * 1.8}`
+            } else if (xepLoaiInput.value == 'LoaiC') {
+               tienThuongInput.value = `Tiền thưởng là: ${tienLuongInput.value * 1.2}`
+            } else if (xepLoaiInput.value == 'LoaiD') {
+               tienThuongInput.value = `Tiền thưởng là: ${tienLuongInput.value * 0.8}`
+            }
+         }
+      }
+    </script>
+</body>
+</html>
